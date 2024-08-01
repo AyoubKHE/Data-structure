@@ -1,5 +1,5 @@
 #include <iostream>
-#include "myLinkedList.h"
+#include "./include/myLinkedList.h"
 
 using namespace std;
 
@@ -12,6 +12,8 @@ int main()
     list->push(15);
     list->push(20);
     list->show();
+
+    // cout << "hello world";
 
 
     return 0;
