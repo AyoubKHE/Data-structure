@@ -14,31 +14,40 @@ class myLinkedList
 {
     private:
         node* head;
+        node* rear;
 
     public:
+
         myLinkedList() {
             this->head = NULL;
+            this->rear = NULL;
         }
+
 
         void push(int value)
         {
             node* newNode = new node;
             newNode->data = value;
             newNode->next = NULL;
+
             if(this->head == NULL)
             {
                 this->head = newNode;
+                this->rear = newNode;
             }
             else
             {
-                node* temp = this->head;
-                while(temp->next != NULL)
-                {
-                    temp = temp->next;
-                }
-                temp->next = newNode;
+                this->rear->next = newNode;
+                this->rear = newNode;
             }
         }
+
+
+        void insertAfter()
+        {
+
+        }
+
 
         void show()
         {
