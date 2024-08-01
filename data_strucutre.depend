@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1722507966 source:d:\pr\datastructure\data_strucutre\main.cpp
+	<iostream>
+	"myLinkedList.h"
+
+1722509338 d:\pr\datastructure\data_strucutre\include\mylinkedlist.h
+	<iostream>
+
