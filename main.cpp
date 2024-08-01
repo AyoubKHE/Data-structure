@@ -3,13 +3,6 @@
 
 using namespace std;
 
-struct book {
-    string name;
-    string author;
-    int pages;
-    double price;
-};
-
 int main()
 {
 
