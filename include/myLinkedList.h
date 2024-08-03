@@ -93,7 +93,38 @@ public:
             newNode->next = nodeBefore->next;
             nodeBefore->next = newNode;
 
-             this->length++;
+            this->length++;
+        }
+    }
+
+    void removeLastElement()
+    {
+
+        if (this->head == NULL)
+        {
+            cout << "Il n'y a aucun élément à supprimer.\n";
+        }
+        else
+        {
+            if (this->head == this->rear)
+            {
+                delete this->head;
+                this->head = this->rear = NULL;
+            }
+            else
+            {
+                node *nodeBefore = this->head;
+                while (nodeBefore->next != this->rear)
+                {
+                    nodeBefore = nodeBefore->next;
+                }
+
+                delete this->rear;
+                this->rear = nodeBefore;
+                nodeBefore->next = NULL;
+            }
+
+            this->length--;
         }
     }
 
