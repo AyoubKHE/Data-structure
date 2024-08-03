@@ -149,6 +149,8 @@ public:
                 delete deletePtr;
                 deletePtr = NULL;
             }
+
+            this->length--;
         }
     }
 
