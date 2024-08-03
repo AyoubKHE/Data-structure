@@ -6,16 +6,13 @@ using namespace std;
 int main()
 {
 
-    myLinkedList* list = new myLinkedList();
-    
-    list->pushFront(1);
-    list->pushFront(2);
+    myLinkedList *list = new myLinkedList();
+
+    list->push(1);
+    list->push(2);
     list->push(3);
 
-    list->show();
-
-    
-
+    cout << list->getLength();
 
     return 0;
 }

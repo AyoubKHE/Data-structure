@@ -16,11 +16,15 @@ private:
     node *head;
     node *rear;
 
+    int length;
+
 public:
     myLinkedList()
     {
         this->head = NULL;
         this->rear = NULL;
+
+        this->length = 0;
     }
 
     void push(int value)
@@ -39,6 +43,8 @@ public:
             this->rear->next = newNode;
             this->rear = newNode;
         }
+
+        this->length++;
     }
 
     void pushFront(int value)
@@ -52,6 +58,8 @@ public:
         {
             this->rear = newNode;
         }
+
+        this->length++;
     }
 
     void show()
@@ -62,6 +70,13 @@ public:
             cout << temp->data << "\n";
             temp = temp->next;
         }
+
+        cout << "\n";
+    }
+
+    int getLength()
+    {
+        return this->length;
     }
 };
 
