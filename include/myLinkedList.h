@@ -7,57 +7,49 @@ using namespace std;
 struct node
 {
     int data;
-    node* next;
+    node *next;
 };
 
 class myLinkedList
 {
-    private:
-        node* head;
-        node* rear;
+private:
+    node *head;
+    node *rear;
 
-    public:
+public:
+    myLinkedList()
+    {
+        this->head = NULL;
+        this->rear = NULL;
+    }
 
-        myLinkedList() {
-            this->head = NULL;
-            this->rear = NULL;
-        }
+    void push(int value)
+    {
+        node *newNode = new node;
+        newNode->data = value;
+        newNode->next = NULL;
 
-
-        void push(int value)
+        if (this->head == NULL)
         {
-            node* newNode = new node;
-            newNode->data = value;
-            newNode->next = NULL;
-
-            if(this->head == NULL)
-            {
-                this->head = newNode;
-                this->rear = newNode;
-            }
-            else
-            {
-                this->rear->next = newNode;
-                this->rear = newNode;
-            }
+            this->head = newNode;
+            this->rear = newNode;
         }
-
-
-        void insertAfter()
+        else
         {
-
+            this->rear->next = newNode;
+            this->rear = newNode;
         }
+    }
 
-
-        void show()
+    void show()
+    {
+        node *temp = this->head;
+        while (temp != NULL)
         {
-            node* temp = this->head;
-            while(temp != NULL)
-            {
-                cout << temp->data << "\n";
-                temp = temp->next;
-            }
+            cout << temp->data << "\n";
+            temp = temp->next;
         }
+    }
 };
 
 #endif // MYLINKEDLIST_H
