@@ -154,6 +154,42 @@ public:
         }
     }
 
+    void removeAtPosition(int position)
+    {
+        if (position <= 0 || position > this->length)
+        {
+            cout << "invalide position \n";
+        }
+        else if (position == 1)
+        {
+            this->removeFirstElement();
+        }
+        else if (position == this->length)
+        {
+            this->removeLastElement();
+        }
+        else
+        {
+            int positionOfNodeBefore = 1;
+            node *nodeBefore = this->head;
+
+            while (position - positionOfNodeBefore != 1)
+            {
+                nodeBefore = nodeBefore->next;
+                positionOfNodeBefore++;
+            }
+
+            node *deletePtr = nodeBefore->next;
+
+            nodeBefore->next = nodeBefore->next->next;
+
+            delete deletePtr;
+            deletePtr = NULL;
+
+            this->length--;
+        }
+    }
+
     void show()
     {
         node *temp = this->head;
