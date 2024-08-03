@@ -1,5 +1,5 @@
 #include <iostream>
-#include "./include/myLinkedList.h"
+#include "./data_structures/myLinkedList.h"
 
 using namespace std;
 
@@ -14,7 +14,7 @@ int main()
     list->push(4);
     list->push(5);
 
-    list->removeAtPosition(0);
+    list->removeAtPosition(3);
 
     list->show();
 
