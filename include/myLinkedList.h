@@ -62,6 +62,39 @@ public:
         this->length++;
     }
 
+    void insertAtPosition(int value, int position)
+    {
+
+        if (position <= 0 || position > this->length + 1)
+        {
+            cout << "invalide position \n";
+        }
+        else if (position == 1)
+        {
+            this->pushFront(value);
+        }
+        else if (position == this->length + 1)
+        {
+            this->push(value);
+        }
+        else
+        {
+            int positionOfNodeBefore = 1;
+            node *nodeBefore = this->head;
+
+            while (position - positionOfNodeBefore != 1)
+            {
+                nodeBefore = nodeBefore->next;
+                positionOfNodeBefore++;
+            }
+
+            node *newNode = new node;
+            newNode->data = value;
+            newNode->next = nodeBefore->next;
+            nodeBefore->next = newNode;
+        }
+    }
+
     void show()
     {
         node *temp = this->head;
