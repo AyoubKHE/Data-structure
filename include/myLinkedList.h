@@ -41,6 +41,14 @@ public:
         }
     }
 
+    void pushFront(int value)
+    {
+        node *newNode = new node;
+        newNode->data = value;
+        newNode->next = this->head;
+        this->head = newNode;
+    }
+
     void show()
     {
         node *temp = this->head;

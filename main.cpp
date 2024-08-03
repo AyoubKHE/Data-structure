@@ -11,9 +11,13 @@ int main()
     list->push(10);
     list->push(15);
     list->push(20);
+    
+    list->pushFront(99);
+    list->pushFront(100);
+    
     list->show();
 
-    // cout << "hello world";
+    
 
 
     return 0;
