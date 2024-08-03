@@ -92,6 +92,8 @@ public:
             newNode->data = value;
             newNode->next = nodeBefore->next;
             nodeBefore->next = newNode;
+
+             this->length++;
         }
     }
 
