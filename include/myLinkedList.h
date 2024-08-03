@@ -47,6 +47,11 @@ public:
         newNode->data = value;
         newNode->next = this->head;
         this->head = newNode;
+
+        if (newNode->next == NULL)
+        {
+            this->rear = newNode;
+        }
     }
 
     void show()

@@ -7,14 +7,11 @@ int main()
 {
 
     myLinkedList* list = new myLinkedList();
-    list->push(5);
-    list->push(10);
-    list->push(15);
-    list->push(20);
     
-    list->pushFront(99);
-    list->pushFront(100);
-    
+    list->pushFront(1);
+    list->pushFront(2);
+    list->push(3);
+
     list->show();
 
     
