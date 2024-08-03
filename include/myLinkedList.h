@@ -128,6 +128,30 @@ public:
         }
     }
 
+    void removeFirstElement()
+    {
+        if (this->head == NULL)
+        {
+            cout << "Il n'y a aucun élément à supprimer.\n";
+        }
+        else
+        {
+            if (this->head == this->rear)
+            {
+                delete this->head;
+                this->head = this->rear = NULL;
+            }
+            else
+            {
+                node *deletePtr = this->head;
+                this->head = this->head->next;
+
+                delete deletePtr;
+                deletePtr = NULL;
+            }
+        }
+    }
+
     void show()
     {
         node *temp = this->head;
