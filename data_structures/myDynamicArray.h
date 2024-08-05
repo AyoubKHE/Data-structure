@@ -41,7 +41,36 @@ private:
         newArray = NULL;
     }
 
+    /*
+        The `closestEmptyPostionFrom` function is used to find the closest empty position in the array starting from a given position.
+        It iterates through the array starting from the specified position until it finds an element with the value `INT_MIN`,
+        which indicates an empty position.
+        If it finds an empty position, it returns the index of that position.
+        If no empty position is found after the specified position, it returns - 1.
+    */
+    int closestEmptyPostionFrom(int position)
+    {
+        for (int i = position; i < this->capacity; i++)
+        {
+            if (this->array[i] == INT_MIN)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
 public:
+    void shiftElementsRight(int from, int to)
+    {
+        for (int i = from; i > to; i--)
+        {
+            this->array[i] = this->array[i - 1];
+        }
+
+        this->array[to] = INT_MIN;
+    }
+
     myDynamicArray(int capacity)
     {
         this->length = 0;
@@ -53,6 +82,25 @@ public:
         for (int i = 0; i < this->capacity; i++)
         {
             this->array[i] = INT_MIN;
+        }
+    }
+
+    myDynamicArray(vector<int> &arr)
+    {
+        this->length = 0;
+        this->highestIndex = 0;
+        this->capacity = arr.size();
+
+        this->array = new int[this->capacity];
+
+        for (int i = 0; i < this->capacity; i++)
+        {
+            if (arr[i] != INT_MIN)
+            {
+                this->length++;
+                this->highestIndex = i + 1;
+            }
+            this->array[i] = arr[i];
         }
     }
 
@@ -86,6 +134,43 @@ public:
         }
         this->length += arr.size();
         this->highestIndex += arr.size();
+    }
+
+    void pushFront(int value)
+    {
+        if (this->array[0] == INT_MIN)
+        {
+            this->array[0] = value;
+            if (this->highestIndex == 0)
+            {
+                this->highestIndex = 1;
+            }
+        }
+        else
+        {
+            int closestEmptyPostion = this->closestEmptyPostionFrom(1);
+
+            if (closestEmptyPostion != -1)
+            {
+                this->shiftElementsRight(closestEmptyPostion, 0);
+                if (closestEmptyPostion > this->highestIndex)
+                {
+                    this->highestIndex++;
+                }
+            }
+            else
+            {
+                this->grow(this->capacity + 1);
+
+                this->shiftElementsRight(capacity - 1, 0);
+
+                this->highestIndex++;
+            }
+
+            this->array[0] = value;
+        }
+
+        this->length++;
     }
 
     void show()
