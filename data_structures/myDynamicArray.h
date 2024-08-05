@@ -63,12 +63,12 @@ private:
 public:
     void shiftElementsRight(int from, int to)
     {
-        for (int i = from; i > to; i--)
+        for (int i = to; i > from; i--)
         {
             this->array[i] = this->array[i - 1];
         }
 
-        this->array[to] = INT_MIN;
+        this->array[from] = INT_MIN;
     }
 
     myDynamicArray(int capacity)
@@ -152,7 +152,7 @@ public:
 
             if (closestEmptyPostion != -1)
             {
-                this->shiftElementsRight(closestEmptyPostion, 0);
+                this->shiftElementsRight(0, closestEmptyPostion);
                 if (closestEmptyPostion + 1 > this->highestIndex)
                 {
                     this->highestIndex++;
@@ -162,7 +162,7 @@ public:
             {
                 this->grow(this->capacity + 1);
 
-                this->shiftElementsRight(capacity - 1, 0);
+                this->shiftElementsRight(0, capacity - 1);
 
                 this->highestIndex++;
             }
@@ -175,7 +175,7 @@ public:
 
     void pushFront(vector<int> &arr)
     {
-        for (int i = 0; i < arr.size(); i++)
+        for (int i = arr.size() - 1; i >= 0; i--)
         {
             this->pushFront(arr[i]);
         }
