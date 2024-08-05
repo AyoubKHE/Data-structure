@@ -9,7 +9,9 @@ int main()
 
     myDynamicArray *dynamicArray = new myDynamicArray(arr);
 
-    dynamicArray->pushFront(99);
+    vector<int> arr2 = {97, 98, 99};
+
+    dynamicArray->pushFront(arr2);
 
     dynamicArray->show();
 

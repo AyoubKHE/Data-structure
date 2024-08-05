@@ -153,7 +153,7 @@ public:
             if (closestEmptyPostion != -1)
             {
                 this->shiftElementsRight(closestEmptyPostion, 0);
-                if (closestEmptyPostion > this->highestIndex)
+                if (closestEmptyPostion + 1 > this->highestIndex)
                 {
                     this->highestIndex++;
                 }
@@ -171,6 +171,14 @@ public:
         }
 
         this->length++;
+    }
+
+    void pushFront(vector<int> &arr)
+    {
+        for (int i = 0; i < arr.size(); i++)
+        {
+            this->pushFront(arr[i]);
+        }
     }
 
     void show()
