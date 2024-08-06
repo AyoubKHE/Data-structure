@@ -242,11 +242,32 @@ public:
         }
     }
 
+    void removeLastElement()
+    {
+        if (this->highestIndex == 0)
+        {
+            cout << "Il n'y a aucun élément à supprimer.\n";
+        }
+        else
+        {
+            this->array[this->highestIndex - 1] = INT_MIN;
+            this->highestIndex--;
+            this->length--;
+        }
+    }
+
     void show()
     {
         for (int i = 0; i < this->capacity; i++)
         {
-            cout << this->array[i] << "\n";
+            if (this->array[i] == INT_MIN)
+            {
+                cout << "N/A" << "\n";
+            }
+            else
+            {
+                cout << this->array[i] << "\n";
+            }
         }
     }
 

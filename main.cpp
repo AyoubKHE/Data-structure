@@ -9,11 +9,7 @@ int main()
 
     myDynamicArray *dynamicArray = new myDynamicArray(arr);
 
-    dynamicArray->insertAtPosition(99, 3);
-
-    vector<int> arr2 = {95, 96, 97};
-
-    dynamicArray->insertAtPosition(arr2, 6);
+    dynamicArray->removeLastElement();
 
     dynamicArray->show();
 
