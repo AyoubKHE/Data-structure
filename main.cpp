@@ -9,7 +9,7 @@ int main()
 
     myDynamicArray *dynamicArray = new myDynamicArray(arr);
 
-    dynamicArray->removeLastElement();
+    dynamicArray->removeFirstElement();
 
     dynamicArray->show();
 

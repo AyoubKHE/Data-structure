@@ -71,6 +71,16 @@ public:
         this->array[from] = INT_MIN;
     }
 
+    void shiftElementsLeft(int from, int to)
+    {
+        for (int i = from; i < to; i++)
+        {
+            this->array[i] = this->array[i + 1];
+        }
+
+        this->array[to] = INT_MIN;
+    }
+
     myDynamicArray(int capacity)
     {
         this->length = 0;
@@ -253,6 +263,27 @@ public:
             this->array[this->highestIndex - 1] = INT_MIN;
             this->highestIndex--;
             this->length--;
+        }
+    }
+
+    void removeFirstElement()
+    {
+        if (this->highestIndex == 0)
+        {
+            cout << "Il n'y a aucun élément à supprimer.\n";
+        }
+        else
+        {
+            if (this->array[0] == INT_MIN)
+            {
+                cout << "L'élément à la première position est déja supprimé.\n";
+            }
+            else
+            {
+                this->shiftElementsLeft(0, this->capacity - 1);
+                this->highestIndex--;
+                this->length--;
+            }
         }
     }
 
