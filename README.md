@@ -10,10 +10,6 @@ Ce dépôt contient l'implémentation de plusieurs structures de données en C++
 2. **Linked List**
     - Une implémentation d'une liste chaînée avec des fonctionnalités complètes telles que l'insertion, la suppression.
 
-## Remarque
-
-Je n'ai pas implémenté les structures de données `stack` et `queue` séparément car toutes les fonctionnalités nécessaires pour ces structures sont déjà présentes dans l'implémentation de la `linked list`.
-
 ## Structure du dépôt
 
 - **data_structures/**: Contient le code source des différentes structures de données.
