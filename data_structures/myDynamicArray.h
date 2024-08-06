@@ -204,8 +204,6 @@ public:
                 {
                     this->highestIndex = position;
                 }
-
-                this->length++;
             }
             else
             {
@@ -230,6 +228,8 @@ public:
 
                 this->array[position - 1] = value;
             }
+
+            this->length++;
         }
     }
 
