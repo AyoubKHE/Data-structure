@@ -8,7 +8,7 @@ Ce dépôt contient l'implémentation de plusieurs structures de données en C++
     - Une implémentation d'un tableau dynamique avec des fonctionnalités de base comme l'ajout, la suppression et la redimension.
     
 2. **Linked List**
-    - Une implémentation d'une liste chaînée avec des fonctionnalités complètes telles que l'insertion, la suppression, et la recherche.
+    - Une implémentation d'une liste chaînée avec des fonctionnalités complètes telles que l'insertion, la suppression.
 
 ## Remarque
 
