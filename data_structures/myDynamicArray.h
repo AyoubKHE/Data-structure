@@ -287,6 +287,35 @@ public:
         }
     }
 
+    void removeAtPosition(int position)
+    {
+        if (position <= 0 || position > this->capacity + 1)
+        {
+            cout << "invalide position \n";
+        }
+        else if (position == 1)
+        {
+            this->removeFirstElement();
+        }
+        else if (position == this->highestIndex)
+        {
+            this->removeLastElement();
+        }
+        else
+        {
+            if (this->array[position - 1] == INT_MIN)
+            {
+                cout << "L'élément à la " << position << " position est déja supprimé.\n";
+            }
+            else
+            {
+                this->shiftElementsLeft(position - 1, this->capacity - 1);
+                this->highestIndex--;
+                this->length--;
+            }
+        }
+    }
+
     void show()
     {
         for (int i = 0; i < this->capacity; i++)
