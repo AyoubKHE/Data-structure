@@ -181,6 +181,67 @@ public:
         }
     }
 
+    void insertAtPosition(int value, int position)
+    {
+        if (position <= 0 || position > this->capacity + 1)
+        {
+            cout << "invalide position \n";
+        }
+        else if (position == 1)
+        {
+            this->pushFront(value);
+        }
+        else if (position == this->capacity + 1)
+        {
+            this->push(value);
+        }
+        else
+        {
+            if (this->array[position - 1] == INT_MIN)
+            {
+                this->array[position - 1] = value;
+                if (this->highestIndex == 0)
+                {
+                    this->highestIndex = position;
+                }
+
+                this->length++;
+            }
+            else
+            {
+                int closestEmptyPostion = this->closestEmptyPostionFrom(position);
+
+                if (closestEmptyPostion != -1)
+                {
+                    this->shiftElementsRight(position - 1, closestEmptyPostion);
+                    if (closestEmptyPostion + 1 > this->highestIndex)
+                    {
+                        this->highestIndex++;
+                    }
+                }
+                else
+                {
+                    this->grow(this->capacity + 1);
+
+                    this->shiftElementsRight(position - 1, capacity - 1);
+
+                    this->highestIndex++;
+                }
+
+                this->array[position - 1] = value;
+            }
+        }
+    }
+
+    void insertAtPosition(vector<int> &arr, int position)
+    {
+        for (int i = arr.size() - 1; i >= 0; i--)
+        {
+            this->insertAtPosition(arr[i], position);
+            position++;
+        }
+    }
+
     void show()
     {
         for (int i = 0; i < this->capacity; i++)

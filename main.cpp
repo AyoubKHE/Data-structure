@@ -5,13 +5,15 @@ using namespace std;
 
 int main()
 {
-    vector<int> arr = {1, 2, 3, INT_MIN, 7, 4, 5, INT_MIN};
+    vector<int> arr = {1, 2, 3, 4, 5, 6, 7, INT_MIN, 9, 10};
 
     myDynamicArray *dynamicArray = new myDynamicArray(arr);
 
-    vector<int> arr2 = {97, 98, 99};
+    dynamicArray->insertAtPosition(99, 3);
 
-    dynamicArray->pushFront(arr2);
+    vector<int> arr2 = {95, 96, 97};
+
+    dynamicArray->insertAtPosition(arr2, 6);
 
     dynamicArray->show();
 
